@@ -1,8 +1,8 @@
 {
   "hoursLimit": "limit godzin",
   "tipNotice": "Do rachunku doliczany jest 10% serwis dla grup liczących 6 lub więcej osób.",
-  "smallDeposit": "Od {{amount}} PLN PON – CZW",
-  "bigDeposit": "Od {{amount}} PLN PT – ND",
+  "smallDeposit": "Od {{amount}} PLN Pn - Czw",
+  "bigDeposit": "Od {{amount}} PLN Pt - Niedz",
   "vip-zone": {
     "title": "Strefa VIP"
   },
