@@ -1,0 +1,266 @@
+{
+  "categories": {
+    "craftCocktails": {
+      "title": "Kraftowe drinki"
+    },
+    "worldClassic": {
+      "title": "Klasyczne koktajle świata"
+    },
+    "mocktails": {
+      "title": "Mocktails (0%)"
+    },
+    "shisha": {
+      "title": "Shisha"
+    },
+    "soft": {
+      "title": "Napoje"
+    },
+    "coffeeTea": {
+      "title": "Kawa / Herbata"
+    },
+    "snacks": {
+      "title": "Przekąski"
+    },
+    "standards": {
+      "title": "Standarty"
+    }
+  },
+  "items": {
+    "tokyoNight": {
+      "name": "Tokyo Night",
+      "description": "Słodko‑kwaśny koktajl przygotowany z puree z marakui, Sprite, syropem wiśniowym i japońskim ginem."
+    },
+    "soprano": {
+      "name": "Soprano",
+      "description": "Słodki koktajl przygotowany z espresso, Baileys i likierem migdałowym."
+    },
+    "supernovaMartini": {
+      "name": "Supernova",
+      "description": "Kwaśny koktajl przygotowany z puree z marakui, wódki waniliowej, soku z limonki z dodatkiem prosecco."
+    },
+    "onyxPeach": {
+      "name": "Onyx Peach",
+      "description": "Słodki koktajl przygotowany z rumu, puree brzoskwiniowego, soku ananasowego i likieru brzoskwiniowego."
+    },
+    "siriusAAndB": {
+      "name": "Sirius A&B",
+      "description": "Dwa koktajle w jednej pozycji."
+    },
+    "eclipse": {
+      "name": "Eclipse",
+      "description": "Kwaśny koktajl przygotowany z tequili, soku pomarańczowego, grenadiny i mięty."
+    },
+    "aperol": {
+      "name": "Aperol",
+      "description": "Słodko‑gorzki klasyczny napój przygotowany z Aperolu, wody gazowanej i prosecco."
+    },
+    "boulevardier": {
+      "name": "Boulevardier",
+      "description": "Mocny gorzki koktajl przygotowany z bourbona, Martini Rosso i Campari."
+    },
+    "cubaLibre": {
+      "name": "Cuba Libre",
+      "description": "Koktajl słodko‑kwaśny przygotowany z rumu, mięty, soku z limonki i coli."
+    },
+    "daiquiri": {
+      "name": "Daiquiri",
+      "description": "Kwaśny koktajl z rumem, sokiem z limonki i triple sec."
+    },
+    "godFather": {
+      "name": "God Father",
+      "description": "Słodki, mocny koktajl zrobiony z bourbona i likieru migdałowego."
+    },
+    "oldFashioned": {
+      "name": "Old Fashioned",
+      "description": "Słodki, mocny koktajl przygotowany z bourbona, cukru trzcinowego i Angostury."
+    },
+    "longIsland": {
+      "name": "Long Island",
+      "description": "Słodko‑kwaśny koktajl z ginu, wódki, rumu, tequili, triple sec, soku z cytryny i coli."
+    },
+    "manhattan": {
+      "name": "Manhattan",
+      "description": "Gorzki koktajl zrobiony z bourbona, Martini Rosso i Angostury."
+    },
+    "margarita": {
+      "name": "Margarita",
+      "description": "Kwaśny koktajl z tequilą, likierem triple sec i sokiem z limonki."
+    },
+    "mojito": {
+      "name": "Mojito",
+      "description": "Kwaśny koktajl z rumem, sokiem z limonki, miętą i Sprite."
+    },
+    "negroni": {
+      "name": "Negroni",
+      "description": "Gorzki koktajl z ginem, Campari i Martini Rosso."
+    },
+    "tomCollins": {
+      "name": "Tom Collins",
+      "description": "Kwaśny koktajl z ginem, cukrem trzcinowym, sokiem z cytryny i wodą gazowaną."
+    },
+    "bumblebee": {
+      "name": "Bumblebee",
+      "description": "Słodko‑gorzki mocktail przygotowany z espresso, soku pomarańczowego i syropu waniliowego."
+    },
+    "eleanora": {
+      "name": "Eleanora",
+      "description": "Słodki tropikalny koktajl bezalkoholowy z soku ananasowego i jabłkowego, puree z marakui oraz syropu melonowego."
+    },
+    "citrusBlossom": {
+      "name": "Citrus Blossom",
+      "description": "Kwaśny koktajl bezalkoholowy z sokiem z pomarańczy, cytryny i limonki, syropem waniliowym i kwiatem bzu."
+    },
+    "orion": {
+      "name": "Orion",
+      "description": "Koktajl słodko‑kwaśny z puree z marakui, Sprite i syropu wiśniowego."
+    },
+    "stargaze": {
+      "name": "Stargaze",
+      "description": "Kwaśny drink bezalkoholowy z musem z borówek, sokiem z ananasa i limonki, wanilią i syropem melonowym."
+    },
+    "shishaPremium": {
+      "name": "Shisha Premium",
+      "description": "Wybierz swoją moc nikotyny 1–7 i ciesz się różnymi smakami."
+    },
+    "shishaCigarro": {
+      "name": "Shisha Cigarro",
+      "description": "Wysokiej jakości liść cygara (bez aromatu). Dobry, czysty i mieszany."
+    },
+    "shishaParfume": {
+      "name": "Shisha Parfume",
+      "description": "Nowa fala w przemyśle fajek wodnych. Bogata, aromatyczna, inna."
+    },
+    "bulleit": {
+      "name": "Bulleit"
+    },
+    "glenmorangie": {
+      "name": "Glenmorangie T.C."
+    },
+    "jackDaniels": {
+      "name": "Jack Daniel’s"
+    },
+    "laphroaig": {
+      "name": "Laphroaig D.O."
+    },
+    "makerSMark": {
+      "name": "Maker’s Mark"
+    },
+    "nikkaBarrel": {
+      "name": "Nikka Barrel"
+    },
+    "sexton": {
+      "name": "Sexton"
+    },
+    "talisker": {
+      "name": "Talisker 10 YO"
+    },
+    "tamnavulin": {
+      "name": "Tamnavulin D.C."
+    },
+    "tenjakuW": {
+      "name": "Tenjaku"
+    },
+    "beefeater": {
+      "name": "Beefeater"
+    },
+    "bombay": {
+      "name": "Bombay"
+    },
+    "gordons": {
+      "name": "Gordon’s"
+    },
+    "hendriks": {
+      "name": "Hendriks"
+    },
+    "roku": {
+      "name": "Roku"
+    },
+    "tenjakuG": {
+      "name": "Tenjaku"
+    },
+    "bacardi": {
+      "name": "Bacardi"
+    },
+    "bumbu": {
+      "name": "Bumbu"
+    },
+    "kraken": {
+      "name": "Kraken"
+    },
+    "planteray": {
+      "name": "Planteray"
+    },
+    "jimador": {
+      "name": "Jimador"
+    },
+    "joseCuervo": {
+      "name": "Jose Cuervo"
+    },
+    "patron": {
+      "name": "Patron"
+    },
+    "salitos": {
+      "name": "Salitos"
+    },
+    "greyGoose": {
+      "name": "Grey Goose"
+    },
+    "ostoya": {
+      "name": "Ostoya"
+    },
+    "zubrowka": {
+      "name": "Zubrowka"
+    },
+    "amber": {
+      "name": "Amber"
+    },
+    "ksiazenice": {
+      "name": "Ksiazenice"
+    },
+    "cola": {
+      "name": "Cola"
+    },
+    "sprite": {
+      "name": "Sprite"
+    },
+    "fanta": {
+      "name": "Fanta"
+    },
+    "cisowianka": {
+      "name": "Cisowianka"
+    },
+    "espresso": {
+      "name": "Espresso"
+    },
+    "americano": {
+      "name": "Americano"
+    },
+    "cappuccino": {
+      "name": "Cappuccino"
+    },
+    "latte": {
+      "name": "Latte"
+    },
+    "chineseTea": {
+      "name": "Chinese Tea"
+    },
+    "7daysCroissant": {
+      "name": "7Days Croissant"
+    },
+    "biscuitLubisie": {
+      "name": "Biscuit Lubisie"
+    },
+    "chipsLays": {
+      "name": "Chips Lay’s"
+    },
+    "marsChocolate": {
+      "name": "Mars Chocolate"
+    },
+    "peanuts": {
+      "name": "Peanuts"
+    },
+    "pistachio": {
+      "name": "Pistachio"
+    }
+  }
+}

@@ -1,0 +1,827 @@
+[
+  {
+    "id": "tokyo-night",
+    "categoryId": "craft-cocktails",
+    "price": {
+      "amount": 39,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.tokyoNight.name",
+    "isActive": true,
+    "order": 10,
+    "volumeMl": 350,
+    "descriptionKey": "menu.items.tokyoNight.description"
+  },
+  {
+    "id": "soprano",
+    "categoryId": "craft-cocktails",
+    "price": {
+      "amount": 34,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.soprano.name",
+    "isActive": true,
+    "order": 20,
+    "volumeMl": 120,
+    "descriptionKey": "menu.items.soprano.description"
+  },
+  {
+    "id": "supernova-martini",
+    "categoryId": "craft-cocktails",
+    "price": {
+      "amount": 38,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.supernovaMartini.name",
+    "isActive": true,
+    "order": 30,
+    "volumeMl": 150,
+    "descriptionKey": "menu.items.supernovaMartini.description"
+  },
+  {
+    "id": "onyx-peach",
+    "categoryId": "craft-cocktails",
+    "price": {
+      "amount": 36,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.onyxPeach.name",
+    "isActive": true,
+    "order": 40,
+    "volumeMl": 350,
+    "descriptionKey": "menu.items.onyxPeach.description"
+  },
+  {
+    "id": "eclipse",
+    "categoryId": "craft-cocktails",
+    "price": {
+      "amount": 37,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.eclipse.name",
+    "isActive": true,
+    "order": 50,
+    "volumeMl": 350,
+    "descriptionKey": "menu.items.eclipse.description"
+  },
+  {
+    "id": "sirius-a-and-b",
+    "categoryId": "craft-cocktails",
+    "price": {
+      "amount": 69,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.siriusAAndB.name",
+    "isActive": true,
+    "order": 60,
+    "volumeMl": 700,
+    "descriptionKey": "menu.items.siriusAAndB.description"
+  },
+  {
+    "id": "aperol",
+    "categoryId": "world-classic",
+    "price": {
+      "amount": 38,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.aperol.name",
+    "isActive": true,
+    "order": 10,
+    "volumeMl": 300,
+    "descriptionKey": "menu.items.aperol.description"
+  },
+  {
+    "id": "boulevardier",
+    "categoryId": "world-classic",
+    "price": {
+      "amount": 40,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.boulevardier.name",
+    "isActive": true,
+    "order": 20,
+    "volumeMl": 120,
+    "descriptionKey": "menu.items.boulevardier.description"
+  },
+  {
+    "id": "cuba-libre",
+    "categoryId": "world-classic",
+    "price": {
+      "amount": 33,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.cubaLibre.name",
+    "isActive": true,
+    "order": 30,
+    "volumeMl": 350,
+    "descriptionKey": "menu.items.cubaLibre.description"
+  },
+  {
+    "id": "daiquiri",
+    "categoryId": "world-classic",
+    "price": {
+      "amount": 34,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.daiquiri.name",
+    "isActive": true,
+    "order": 40,
+    "volumeMl": 110,
+    "descriptionKey": "menu.items.daiquiri.description"
+  },
+  {
+    "id": "god-father",
+    "categoryId": "world-classic",
+    "price": {
+      "amount": 34,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.godFather.name",
+    "isActive": true,
+    "order": 50,
+    "volumeMl": 90,
+    "descriptionKey": "menu.items.godFather.description"
+  },
+  {
+    "id": "old-fashioned",
+    "categoryId": "world-classic",
+    "price": {
+      "amount": 36,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.oldFashioned.name",
+    "isActive": true,
+    "order": 60,
+    "volumeMl": 75,
+    "descriptionKey": "menu.items.oldFashioned.description"
+  },
+  {
+    "id": "long-island",
+    "categoryId": "world-classic",
+    "price": {
+      "amount": 45,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.longIsland.name",
+    "isActive": true,
+    "order": 70,
+    "volumeMl": 350,
+    "descriptionKey": "menu.items.longIsland.description"
+  },
+  {
+    "id": "manhattan",
+    "categoryId": "world-classic",
+    "price": {
+      "amount": 40,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.manhattan.name",
+    "isActive": true,
+    "order": 80,
+    "volumeMl": 90,
+    "descriptionKey": "menu.items.manhattan.description"
+  },
+  {
+    "id": "margarita",
+    "categoryId": "world-classic",
+    "price": {
+      "amount": 36,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.margarita.name",
+    "isActive": true,
+    "order": 90,
+    "volumeMl": 120,
+    "descriptionKey": "menu.items.margarita.description"
+  },
+  {
+    "id": "mojito",
+    "categoryId": "world-classic",
+    "price": {
+      "amount": 38,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.mojito.name",
+    "isActive": true,
+    "order": 100,
+    "volumeMl": 350,
+    "descriptionKey": "menu.items.mojito.description"
+  },
+  {
+    "id": "negroni",
+    "categoryId": "world-classic",
+    "price": {
+      "amount": 37,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.negroni.name",
+    "isActive": true,
+    "order": 110,
+    "volumeMl": 90,
+    "descriptionKey": "menu.items.negroni.description"
+  },
+  {
+    "id": "tom-collins",
+    "categoryId": "world-classic",
+    "price": {
+      "amount": 34,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.tomCollins.name",
+    "isActive": true,
+    "order": 120,
+    "volumeMl": 350,
+    "descriptionKey": "menu.items.tomCollins.description"
+  },
+  {
+    "id": "bumblebee",
+    "categoryId": "mocktails",
+    "price": {
+      "amount": 24,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.bumblebee.name",
+    "isActive": true,
+    "order": 10,
+    "volumeMl": 300,
+    "descriptionKey": "menu.items.bumblebee.description"
+  },
+  {
+    "id": "eleanora",
+    "categoryId": "mocktails",
+    "price": {
+      "amount": 24,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.eleanora.name",
+    "isActive": true,
+    "order": 20,
+    "volumeMl": 350,
+    "descriptionKey": "menu.items.eleanora.description"
+  },
+  {
+    "id": "citrus-blossom",
+    "categoryId": "mocktails",
+    "price": {
+      "amount": 24,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.citrusBlossom.name",
+    "isActive": true,
+    "order": 30,
+    "volumeMl": 300,
+    "descriptionKey": "menu.items.citrusBlossom.description"
+  },
+  {
+    "id": "orion",
+    "categoryId": "mocktails",
+    "price": {
+      "amount": 24,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.orion.name",
+    "isActive": true,
+    "order": 40,
+    "volumeMl": 320,
+    "descriptionKey": "menu.items.orion.description"
+  },
+  {
+    "id": "stargaze",
+    "categoryId": "mocktails",
+    "price": {
+      "amount": 24,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.stargaze.name",
+    "isActive": true,
+    "order": 50,
+    "volumeMl": 200,
+    "descriptionKey": "menu.items.stargaze.description"
+  },
+  {
+    "id": "shisha-premium",
+    "categoryId": "shisha",
+    "price": {
+      "amount": 100,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.shishaPremium.name",
+    "isActive": true,
+    "order": 10,
+    "descriptionKey": "menu.items.shishaPremium.description"
+  },
+  {
+    "id": "shisha-cigarro",
+    "categoryId": "shisha",
+    "price": {
+      "amount": 120,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.shishaCigarro.name",
+    "isActive": true,
+    "order": 20,
+    "descriptionKey": "menu.items.shishaCigarro.description"
+  },
+  {
+    "id": "shisha-parfume",
+    "categoryId": "shisha",
+    "price": {
+      "amount": 150,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.shishaParfume.name",
+    "isActive": true,
+    "order": 30,
+    "descriptionKey": "menu.items.shishaParfume.description"
+  },
+  {
+    "id": "bulleit",
+    "categoryId": "standards",
+    "price": {
+      "amount": 29,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.bulleit.name",
+    "isActive": true,
+    "order": 10
+  },
+  {
+    "id": "glenmorangie",
+    "categoryId": "standards",
+    "price": {
+      "amount": 29,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.glenmorangie.name",
+    "isActive": true,
+    "order": 20
+  },
+  {
+    "id": "jack-daniels",
+    "categoryId": "standards",
+    "price": {
+      "amount": 26,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.jackDaniels.name",
+    "isActive": true,
+    "order": 30
+  },
+  {
+    "id": "laphroaig",
+    "categoryId": "standards",
+    "price": {
+      "amount": 43,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.laphroaig.name",
+    "isActive": true,
+    "order": 40
+  },
+  {
+    "id": "maker-s-mark",
+    "categoryId": "standards",
+    "price": {
+      "amount": 29,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.makerSMark.name",
+    "isActive": true,
+    "order": 50
+  },
+  {
+    "id": "nikka-barrel",
+    "categoryId": "standards",
+    "price": {
+      "amount": 60,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.nikkaBarrel.name",
+    "isActive": true,
+    "order": 60
+  },
+  {
+    "id": "sexton",
+    "categoryId": "standards",
+    "price": {
+      "amount": 31,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.sexton.name",
+    "isActive": true,
+    "order": 70
+  },
+  {
+    "id": "talisker",
+    "categoryId": "standards",
+    "price": {
+      "amount": 49,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.talisker.name",
+    "isActive": true,
+    "order": 80
+  },
+  {
+    "id": "tamnavulin",
+    "categoryId": "standards",
+    "price": {
+      "amount": 29,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.tamnavulin.name",
+    "isActive": true,
+    "order": 90
+  },
+  {
+    "id": "tenjaku-w",
+    "categoryId": "standards",
+    "price": {
+      "amount": 37,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.tenjakuW.name",
+    "isActive": true,
+    "order": 100
+  },
+  {
+    "id": "beefeater",
+    "categoryId": "standards",
+    "price": {
+      "amount": 23,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.beefeater.name",
+    "isActive": true,
+    "order": 10
+  },
+  {
+    "id": "bombay",
+    "categoryId": "standards",
+    "price": {
+      "amount": 23,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.bombay.name",
+    "isActive": true,
+    "order": 20
+  },
+  {
+    "id": "gordons",
+    "categoryId": "standards",
+    "price": {
+      "amount": 20,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.gordons.name",
+    "isActive": true,
+    "order": 30
+  },
+  {
+    "id": "hendriks",
+    "categoryId": "standards",
+    "price": {
+      "amount": 37,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.hendriks.name",
+    "isActive": true,
+    "order": 40
+  },
+  {
+    "id": "roku",
+    "categoryId": "standards",
+    "price": {
+      "amount": 26,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.roku.name",
+    "isActive": true,
+    "order": 50
+  },
+  {
+    "id": "tenjaku-g",
+    "categoryId": "standards",
+    "price": {
+      "amount": 23,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.tenjakuG.name",
+    "isActive": true,
+    "order": 60
+  },
+  {
+    "id": "bacardi",
+    "categoryId": "standards",
+    "price": {
+      "amount": 20,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.bacardi.name",
+    "isActive": true,
+    "order": 10
+  },
+  {
+    "id": "bumbu",
+    "categoryId": "standards",
+    "price": {
+      "amount": 29,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.bumbu.name",
+    "isActive": true,
+    "order": 20
+  },
+  {
+    "id": "kraken",
+    "categoryId": "standards",
+    "price": {
+      "amount": 26,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.kraken.name",
+    "isActive": true,
+    "order": 30
+  },
+  {
+    "id": "planteray",
+    "categoryId": "standards",
+    "price": {
+      "amount": 43,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.planteray.name",
+    "isActive": true,
+    "order": 40
+  },
+  {
+    "id": "jimador",
+    "categoryId": "standards",
+    "price": {
+      "amount": 22,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.jimador.name",
+    "isActive": true,
+    "order": 10
+  },
+  {
+    "id": "jose-cuervo",
+    "categoryId": "standards",
+    "price": {
+      "amount": 20,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.joseCuervo.name",
+    "isActive": true,
+    "order": 20
+  },
+  {
+    "id": "patron",
+    "categoryId": "standards",
+    "price": {
+      "amount": 45,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.patron.name",
+    "isActive": true,
+    "order": 30
+  },
+  {
+    "id": "salitos",
+    "categoryId": "standards",
+    "price": {
+      "amount": 26,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.salitos.name",
+    "isActive": true,
+    "order": 40
+  },
+  {
+    "id": "grey-goose",
+    "categoryId": "standards",
+    "price": {
+      "amount": 23,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.greyGoose.name",
+    "isActive": true,
+    "order": 10
+  },
+  {
+    "id": "ostoya",
+    "categoryId": "standards",
+    "price": {
+      "amount": 23,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.ostoya.name",
+    "isActive": true,
+    "order": 20
+  },
+  {
+    "id": "zubrowka",
+    "categoryId": "standards",
+    "price": {
+      "amount": 20,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.zubrowka.name",
+    "isActive": true,
+    "order": 30
+  },
+  {
+    "id": "amber",
+    "categoryId": "standards",
+    "price": {
+      "amount": 18,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.amber.name",
+    "isActive": true,
+    "order": 10,
+    "volumeMl": 500
+  },
+  {
+    "id": "ksiazenice",
+    "categoryId": "standards",
+    "price": {
+      "amount": 18,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.ksiazenice.name",
+    "isActive": true,
+    "order": 20,
+    "volumeMl": 500
+  },
+  {
+    "id": "cola",
+    "categoryId": "soft",
+    "price": {
+      "amount": 12,
+      "currency": "PLN"
+    },
+    "volumeMl": 330,
+    "nameKey": "menu.items.cola.name",
+    "isActive": true,
+    "order": 10
+  },
+  {
+    "id": "sprite",
+    "categoryId": "soft",
+    "price": {
+      "amount": 12,
+      "currency": "PLN"
+    },
+    "volumeMl": 330,
+    "nameKey": "menu.items.sprite.name",
+    "isActive": true,
+    "order": 20
+  },
+  {
+    "id": "fanta",
+    "categoryId": "soft",
+    "price": {
+      "amount": 12,
+      "currency": "PLN"
+    },
+    "volumeMl": 330,
+    "nameKey": "menu.items.fanta.name",
+    "isActive": true,
+    "order": 30
+  },
+  {
+    "id": "cisowianka",
+    "categoryId": "soft",
+    "price": {
+      "amount": 10,
+      "currency": "PLN"
+    },
+    "volumeMl": 300,
+    "nameKey": "menu.items.cisowianka.name",
+    "isActive": true,
+    "order": 40
+  },
+  {
+    "id": "espresso",
+    "categoryId": "coffee-tea",
+    "price": {
+      "amount": 10,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.espresso.name",
+    "isActive": true,
+    "order": 10
+  },
+  {
+    "id": "americano",
+    "categoryId": "coffee-tea",
+    "price": {
+      "amount": 12,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.americano.name",
+    "isActive": true,
+    "order": 20
+  },
+  {
+    "id": "cappuccino",
+    "categoryId": "coffee-tea",
+    "price": {
+      "amount": 17,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.cappuccino.name",
+    "isActive": true,
+    "order": 30
+  },
+  {
+    "id": "latte",
+    "categoryId": "coffee-tea",
+    "price": {
+      "amount": 19,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.latte.name",
+    "isActive": true,
+    "order": 40
+  },
+  {
+    "id": "chinese-tea",
+    "categoryId": "coffee-tea",
+    "price": {
+      "amount": 35,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.chineseTea.name",
+    "isActive": true,
+    "order": 50
+  },
+  {
+    "id": "7days-croissant",
+    "categoryId": "snacks",
+    "price": {
+      "amount": 6,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.7daysCroissant.name",
+    "isActive": true,
+    "order": 10
+  },
+  {
+    "id": "biscuit-lubisie",
+    "categoryId": "snacks",
+    "price": {
+      "amount": 4,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.biscuitLubisie.name",
+    "isActive": true,
+    "order": 20
+  },
+  {
+    "id": "chips-lays",
+    "categoryId": "snacks",
+    "price": {
+      "amount": 7,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.chipsLays.name",
+    "isActive": true,
+    "order": 30
+  },
+  {
+    "id": "mars-chocolate",
+    "categoryId": "snacks",
+    "price": {
+      "amount": 8,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.marsChocolate.name",
+    "isActive": true,
+    "order": 40
+  },
+  {
+    "id": "peanuts",
+    "categoryId": "snacks",
+    "price": {
+      "amount": 16,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.peanuts.name",
+    "isActive": true,
+    "order": 50
+  },
+  {
+    "id": "pistachio",
+    "categoryId": "snacks",
+    "price": {
+      "amount": 46,
+      "currency": "PLN"
+    },
+    "nameKey": "menu.items.pistachio.name",
+    "isActive": true,
+    "order": 60
+  }
+]

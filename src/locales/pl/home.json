@@ -1,0 +1,24 @@
+{
+  "intro": {
+    "title": "HOOKAH LOUNGE",
+    "subtitle": "Lounge bar. Shisha. Atmosfera.",
+    "caption": "Zrelaksuj się. Zapal shishę. Zostań.",
+    "buttons": {
+      "menu": "Menu",
+      "contacts": "Kontakt"
+    }
+  },
+  "menuPreview": {
+    "title": "Podgląd menu",
+    "cards": {
+      "bar": "Bar",
+      "hookah": "Shisha",
+      "tables": "Stoliki"
+    },
+    "seeMenu": "Zobacz menu"
+  },
+  "atmosphere": {
+    "title": "PRZYTULNA ATMOSFERA",
+    "text": "Miejsce, w którym możesz się zrelaksować i cieszyć się doskonałą shishą, autorskimi koktajlami oraz dopracowanym barem. Przytulna atmosfera, nastrojowe światło, wygodne stoliki i uważna obsługa — abyś mógł naprawdę dobrze spędzić czas."
+  }
+}

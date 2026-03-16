@@ -1,0 +1,51 @@
+{
+  "title": "Wydarzenia i promocje",
+  "titleEvents": "Wydarzenia",
+  "titleSpecials": "Promocje",
+  "today": "Dziś",
+  "specials": {
+    "days": {
+      "monday": "Poniedziałek",
+      "tuesday": "Wtorek",
+      "wednesday": "Środa",
+      "thursday": "Czwartek",
+      "friday": "Piątek",
+      "saturday": "Sobota",
+      "sunday": "Niedziela"
+    },
+    "monday": {
+      "title": "Darmowa przekąska do shishy",
+      "description": "Do wyboru: 7Days, orzeszki, chipsy lub baton Mars"
+    },
+    "tuesday": {
+      "title": "Darmowa kawa do shishy"
+    },
+    "wednesday": {
+      "title": "Darmowe piwo do shishy"
+    },
+    "thursday": {
+      "title": "50% zniżki na pierwszy koktajl",
+      "description": "Przy zamówieniu dowolnej shishy"
+    }
+  },
+  "events": {
+    "mafia": {
+      "title": "Wieczór gry Mafia"
+    },
+    "karaoke": {
+      "title": "Wieczór karaoke"
+    },
+    "masterclass": {
+      "title": "Masterclass shisha & bar"
+    },
+    "violin": {
+      "title": "Skrzypek Viktor",
+      "description": "Występ skrzypcowy na żywo"
+    },
+    "verka": {
+      "title": "Tribute Verka Serduchka",
+      "description": "From Wera with Love"
+    }
+  },
+  "seeAll": "Zobacz wszystko"
+}

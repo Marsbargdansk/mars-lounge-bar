@@ -1,0 +1,50 @@
+[
+  {
+    "id": "craft-cocktails",
+    "titleKey": "menu.categories.craftCocktails.title",
+    "order": 10,
+    "isActive": true
+  },
+  {
+    "id": "world-classic",
+    "titleKey": "menu.categories.worldClassic.title",
+    "order": 20,
+    "isActive": true
+  },
+  {
+    "id": "mocktails",
+    "titleKey": "menu.categories.mocktails.title",
+    "order": 30,
+    "isActive": true
+  },
+  {
+    "id": "shisha",
+    "titleKey": "menu.categories.shisha.title",
+    "order": 40,
+    "isActive": true
+  },
+  {
+    "id": "soft",
+    "titleKey": "menu.categories.soft.title",
+    "order": 60,
+    "isActive": true
+  },
+  {
+    "id": "coffee-tea",
+    "titleKey": "menu.categories.coffeeTea.title",
+    "order": 70,
+    "isActive": true
+  },
+  {
+    "id": "snacks",
+    "titleKey": "menu.categories.snacks.title",
+    "order": 80,
+    "isActive": true
+  },
+  {
+    "id": "standards",
+    "titleKey": "menu.categories.standards.title",
+    "order": 50,
+    "isActive": true
+  }
+]

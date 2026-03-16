@@ -1,0 +1,24 @@
+{
+  "intro": {
+    "title": "HOOKAH LOUNGE",
+    "subtitle": "Lounge bar. Hookah. Atmosphere.",
+    "caption": "Relax. Smoke. Stay.",
+    "buttons": {
+      "menu": "Menu",
+      "contacts": "Contacts"
+    }
+  },
+  "menuPreview": {
+    "title": "Menu preview",
+    "cards": {
+      "bar": "Bar",
+      "hookah": "Hookah",
+      "tables": "Tables"
+    },
+    "seeMenu": "See menu"
+  },
+  "atmosphere": {
+    "title": "COZY ATMOSPHERE",
+    "text": "A place where you can relax and enjoy great hookahs, signature cocktails, and a well-crafted bar. A cozy atmosphere, soft lighting, comfortable tables, and attentive service — so you can truly enjoy your time."
+  }
+}

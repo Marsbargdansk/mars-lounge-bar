@@ -1,0 +1,27 @@
+[
+  {
+    "id": "mafia",
+    "date": "06.02",
+    "timePeriod": null
+  },
+  {
+    "id": "violin",
+    "date": "14.02",
+    "timePeriod": "20:00–22:00"
+  },
+  {
+    "id": "verka",
+    "date": "15.02",
+    "timePeriod": null
+  },
+  {
+    "id": "masterclass",
+    "date": "20.02",
+    "timePeriod": null
+  },
+  {
+    "id": "karaoke",
+    "date": "27.02",
+    "timePeriod": null
+  }
+]

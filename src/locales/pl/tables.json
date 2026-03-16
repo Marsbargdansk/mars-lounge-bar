@@ -1,0 +1,33 @@
+{
+  "hoursLimit": "limit godzin",
+  "tipNotice": "Do rachunku doliczany jest 10% serwis dla grup liczących 6 lub więcej osób.",
+  "smallDeposit": "Od {{amount}} PLN PON – WT",
+  "bigDeposit": "Od {{amount}} PLN PT – ND",
+  "vip-zone": {
+    "title": "Strefa VIP"
+  },
+  "game-zone": {
+    "title": "Strefa Gier"
+  },
+  "t1": {
+    "title": "Stół 1"
+  },
+  "t2": {
+    "title": "Stół 2"
+  },
+  "t3": {
+    "title": "Stół 3"
+  },
+  "t4": {
+    "title": "Stół 4"
+  },
+  "t5": {
+    "title": "Stół 5"
+  },
+  "t6": {
+    "title": "Stół 6"
+  },
+  "t7": {
+    "title": "Stół 7"
+  }
+}

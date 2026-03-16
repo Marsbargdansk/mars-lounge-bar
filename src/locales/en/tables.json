@@ -1,0 +1,34 @@
+{
+  "hoursLimit": "hours limit",
+  "tipNotice": "A 10% tips is added for groups of 6 or more people.",
+  "smallDeposit": "From {{amount}} PLN Mon - Tue",
+  "bigDeposit": "From {{amount}} PLN Fri - Sun",
+  "vip-zone": {
+    "title": "VIP Zone"
+  },
+  "game-zone": {
+    "title": "Game Zone"
+  },
+  "t1": {
+    "title": "Table 1"
+  },
+  "t2": {
+    "title": "Table 2"
+  },
+  "t3": {
+    "title": "Table 3"
+  },
+  "t4": {
+    "title": "Table 4"
+  },
+  "t5": {
+    "title": "Table 5"
+  },
+  "t6": {
+    "title": "Table 6"
+  },
+  "t7": {
+    "title": "Table 7"
+  }
+}
+

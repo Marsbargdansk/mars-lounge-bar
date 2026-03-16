@@ -1,0 +1,51 @@
+{
+  "title": "Events & Specials",
+  "titleEvents": "Events",
+  "titleSpecials": "Specials",
+  "today": "Today",
+  "specials": {
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "monday": {
+      "title": "Free snack with hookah",
+      "description": "Choose from: 7Days, nuts, chips, or a Mars bar"
+    },
+    "tuesday": {
+      "title": "Free coffee with hookah"
+    },
+    "wednesday": {
+      "title": "Free beer with hookah"
+    },
+    "thursday": {
+      "title": "50% off the first cocktail",
+      "description": "With any hookah order"
+    }
+  },
+  "events": {
+    "mafia": {
+      "title": "Mafia Game Night"
+    },
+    "karaoke": {
+      "title": "Karaoke Night"
+    },
+    "masterclass": {
+      "title": "Hookah & Bar Masterclass"
+    },
+    "violin": {
+      "title": "Violinist Viktor",
+      "description": "Live violin performance"
+    },
+    "verka": {
+      "title": "Verka Serduchka Tribute",
+      "description": "From Wera with Love"
+    }
+  },
+  "seeAll": "See all"
+}
