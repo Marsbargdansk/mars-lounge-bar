@@ -29,7 +29,7 @@ const NavItem = ({category, lang, activeSlug, itemRef}: NavItemProps) => {
             href={href}
             className={clsx(
                 'relative shrink-0 whitespace-nowrap p-2 rounded-full text-sm tracking-wide transition-all duration-300',
-                'border border-white/10 backdrop-blur-md',
+                'bg-black/35 border border-white/10 backdrop-blur-md',
                 isActive
                     ? 'text-[#CFA57A]'
                     : 'text-white/60 hover:text-white'

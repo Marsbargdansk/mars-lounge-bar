@@ -11,7 +11,7 @@
     "id": "game-zone",
     "smallDeposit": 120,
     "bigDeposit": 150,
-    "personLimit": 4,
+    "personLimit": 3,
     "hoursLimit": 2
   },
   {

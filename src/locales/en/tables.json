@@ -1,7 +1,7 @@
 {
   "hoursLimit": "hours limit",
   "tipNotice": "A 10% tips is added for groups of 6 or more people.",
-  "smallDeposit": "From {{amount}} PLN Mon - Tue",
+  "smallDeposit": "From {{amount}} PLN Mon - Thu",
   "bigDeposit": "From {{amount}} PLN Fri - Sun",
   "vip-zone": {
     "title": "VIP Zone"
