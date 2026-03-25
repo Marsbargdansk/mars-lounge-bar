@@ -4,6 +4,7 @@ import {PageProps} from "@/types/page";
 import {Contacts} from "@/components/contact/Contacts";
 import {MainPageWrapper} from "@/components/common/MainPageWrapper";
 import {getContactsInfo} from "@/lib/contacts";
+import {getContactData} from "@/lib/strapi/contactPage";
 
 export async function generateMetadata({params}: PageProps): Promise<Metadata> {
     const {lang} = await params;
@@ -31,12 +32,14 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
     };
 }
 
-export default function ContactPage({params}: PageProps) {
-    const contactsInfo = getContactsInfo()
+export default async function ContactPage({params}: PageProps) {
+    const {lang} = await params;
+    const contactPageData = await getContactData(lang);
+
     return (
         <MainPageWrapper>
-            <Contacts/>
-            <GoogleMapEmbed query={contactsInfo.mapQuery}/>
+            <Contacts data={contactPageData}/>
+            <GoogleMapEmbed query={contactPageData?.mapEmbedUrl || ''}/>
         </MainPageWrapper>
     );
 }

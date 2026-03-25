@@ -1,13 +1,13 @@
-'use client'
 import React from "react";
 import {TableCard} from "./TableCard";
 import {getTables} from "@/lib/tables";
 import {TableCardData} from "@/types/table";
 import clsx from "clsx";
-import {useDict} from "@/components/i18n/I18nProvider";
-import {tByKey} from "@/shared/helpers/tByKey";
+import {Locale} from "@/types/lang";
+import {getTablesPageData, getTablesRegular, getTablesZones} from "@/lib/strapi/tablesPage";
+import {TableItem} from "@/types/strapi";
 
-const Section = ({items, className}: { items: TableCardData[]; className: string }) => {
+const Section = ({items, className}: { items: TableItem[]; className: string }) => {
     if (!items.length) return null;
 
     return (
@@ -19,17 +19,22 @@ const Section = ({items, className}: { items: TableCardData[]; className: string
     );
 };
 
-export const TablesGrid = () => {
-    const tables = getTables();
-    const dict = useDict();
+export const TablesGrid = async ({lang}: { lang: Locale }) => {
+    const tablesPageData = await getTablesPageData(lang)
+    const regularTables = await getTablesRegular(lang)
+    const zoneTables = await getTablesZones(lang)
+
+    console.log('tablesPageData', tablesPageData)
+    console.log('regularTables', regularTables)
+    console.log('zoneTables', zoneTables)
     return (
         <div className="w-full grid grid-cols-1 gap-4">
             <div className='flex gap-1 px-1 sm:px-4'>
                 <div className='text-red-400 text-xl'>*</div>
-                <div className='text-white/55'>{tByKey(dict, 'tables.tipNotice')}</div>
+                <div className='text-white/55'>{tablesPageData?.noticeText}</div>
             </div>
-            <Section items={tables.slice(0, 2)}  className="grid-cols-1 sm:grid-cols-2"/>
-            <Section items={tables.slice(2)} className="grid-cols-1 sm:grid-cols-3"/>
+            <Section items={zoneTables.table_items            } className="grid-cols-1 sm:grid-cols-2"/>
+            <Section items={regularTables.table_items} className="grid-cols-1 sm:grid-cols-3"/>
         </div>
     );
 };

@@ -6,7 +6,7 @@ import {HappeningsCard} from "@/components/happenings/HappeningsCard";
 import {HappeningsCardContent} from "@/components/happenings/HappeningsCardContent";
 import {SpecialsData} from "@/lib/happenings";
 import {useDict} from "@/components/i18n/I18nProvider";
-import {StrapiEvent} from "@/lib/strapi/types";
+import {StrapiEvent} from "@/types/strapi";
 import {buildTimeRange, formatShortDate} from "@/shared/helpers/date";
 import {CardTitle} from "@/components/common/CardTitle";
 

@@ -1,18 +1,13 @@
-'use client'
 import Link from "next/link";
-import {getContactsInfo} from "@/lib/contacts";
-import {useDict} from "@/components/i18n/I18nProvider";
-import {tByKey} from "@/shared/helpers/tByKey";
 import {CardTitle} from "@/components/common/CardTitle";
 import React from "react";
+import {BusinessHour, ContactsPage} from "@/types/strapi";
+import {formatShortTime} from "@/shared/helpers/date";
 
-export const Contacts = () => {
-    const contactsInfo = getContactsInfo()
-    const dict = useDict();
-
-    const {address, phone, email, socials} = contactsInfo;
-    const phoneHref = `tel:${phone.replace(/[^\d+]/g, "")}`;
-    const emailHref = `mailto:${email}`;
+export const Contacts = ({data}: { data: ContactsPage | null }) => {
+    console.log('data,', data)
+    const phoneHref = `tel:${data?.phone?.value?.replace(/[^\d+]/g, "")}`;
+    const emailHref = `mailto:${data?.email?.value}`;
 
     return (
         <div className="overflow-hidden rounded-[28px] border border-white/10
@@ -22,17 +17,19 @@ export const Contacts = () => {
                 <div className="flex flex-col gap-4 sm:gap-0 sm:flex-row sm:items-start sm:justify-between">
                     {/* Title + accent */}
                     <div className="flex flex-col mr-4 sm:mr-12 h-full ">
-                        <CardTitle titleKey='contacts.title' className='m-0 sm:m-0 mb-4 text-left'/>
+                        <CardTitle title={data?.pageTitle} className='m-0 sm:m-0 mb-4 text-left'/>
 
                         <div className="h-px w-16 bg-[#B77A45]/70"/>
                         <p className="mt-5 text-[15px] leading-6 text-white/55">
-                            {tByKey(dict, 'contacts.text')}
+                            {data?.description}
                         </p>
                         <div className="mt-5  tracking-[0.22em] text-[15px] leading-6 text-white/55">
-                            <p>{tByKey(dict, 'contacts.monday')} - {tByKey(dict, 'contacts.thursday')}: 16:00 -
-                                00:00</p>
-                            <p>{tByKey(dict, 'contacts.friday')} - {tByKey(dict, 'contacts.saturday')}: 16:00 - 03:00</p>
-                            <p>{tByKey(dict, 'contacts.sunday')}: 16:00 - 02:00</p>
+                            {data?.businessHours?.map((item: BusinessHour, i: number) => {
+                                const timeRange = `${formatShortTime(item.startTime)} - ${formatShortTime(item.endTime)}`
+                                return (
+                                    <p key={i}>{item.label}: {timeRange}</p>
+                                )
+                            })}
                         </div>
                     </div>
 
@@ -40,55 +37,55 @@ export const Contacts = () => {
                     <div className="grid gap-4 md:min-w-[420px]">
                         <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
                             <div className="text-[11px] tracking-[0.18em] uppercase text-white/45">
-                                {tByKey(dict, 'contacts.address')}
+                                {data?.address?.title}
                             </div>
-                            <div className="mt-2 text-[14px] text-white/80">{address}</div>
+                            <div className="mt-2 text-[14px] text-white/80">{data?.address?.value}</div>
                         </div>
 
                         <div className="grid gap-4 sm:grid-cols-[5fr_8fr]">
                             <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
                                 <div className="text-[11px] tracking-[0.18em] uppercase text-white/45">
-                                    {tByKey(dict, 'contacts.phone')}
+                                    {data?.phone?.title}
                                 </div>
                                 <Link
                                     href={phoneHref}
                                     className="mt-2 inline-block text-[14px] text-white/80 hover:text-white transition"
                                 >
-                                    {phone}
+                                    {data?.phone?.value}
                                 </Link>
                             </div>
 
                             <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
                                 <div className="text-[11px] tracking-[0.18em] uppercase text-white/45">
-                                    {tByKey(dict, 'contacts.email')}
+                                    {data?.email?.title}
                                 </div>
                                 <Link
                                     href={emailHref}
                                     className="mt-2 inline-block text-[14px] text-white/80 hover:text-white transition"
                                 >
-                                    {email}
+                                    {data?.email?.value}
                                 </Link>
                             </div>
                         </div>
 
                         <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
                             <div className="text-[11px] tracking-[0.18em] uppercase text-white/45">
-                                {tByKey(dict, 'contacts.socials.title')}
+                                {data?.socialsTitle}
                             </div>
 
                             <div className="mt-3 flex flex-wrap gap-2">
-                                {socials.map((s) => {
+                                {data?.socials?.map((social) => {
                                     return (
                                         <a
-                                            key={s.type}
-                                            href={s.link}
+                                            key={social.title}
+                                            href={social.url}
                                             target="_blank"
                                             rel="noreferrer"
                                             className="rounded-xl border border-white/10
                               bg-black/20 px-3 py-2 text-[12px] tracking-[0.14em] uppercase
                               text-white/70 hover:text-white hover:bg-white/5 transition"
                                         >
-                                            {tByKey(dict, `contacts.socials.${s.type}`)}
+                                            {social.title}
                                         </a>
                                     )
                                 })}

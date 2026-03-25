@@ -6,15 +6,16 @@ import clsx from "clsx";
 
 
 type Props = {
-    titleKey: string;
+    title?: string;
+    titleKey?: string;
     className?: string;
 };
-export const CardTitle = ({titleKey, className}: Props) => {
+export const CardTitle = ({title,titleKey, className}: Props) => {
     const dict = useDict();
 
     return (
         <h2 className={clsx("text-center text-[24px] tracking-[0.22em] uppercase text-white/85 mb-2 sm:mb-8", className)}>
-            {tByKey(dict, titleKey)}
+            {title || tByKey(dict, titleKey)}
         </h2>
     );
 };

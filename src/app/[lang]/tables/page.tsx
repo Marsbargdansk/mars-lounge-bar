@@ -29,10 +29,11 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
     };
 }
 
-export default function TablesPage() {
+export default async function TablesPage({params}: PageProps) {
+    const {lang} = await params;
     return (
         <MainPageWrapper>
-            <TablesGrid/>
+            <TablesGrid lang={lang}/>
         </MainPageWrapper>
     );
 }

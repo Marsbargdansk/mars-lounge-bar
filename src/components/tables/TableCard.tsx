@@ -1,20 +1,15 @@
-'use client'
 import React from "react";
 import Image from "next/image";
-import {useDict} from "@/components/i18n/I18nProvider";
-import {TableCardData} from "@/types/table";
 import clsx from "clsx";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPerson} from "@fortawesome/free-solid-svg-icons";
-import {tByKey} from "@/shared/helpers/tByKey";
+import {TableItem} from "@/types/strapi";
 
 type Props = {
-    item: TableCardData
+    item: TableItem
 }
 
 export const TableCard = ({item}: Props) => {
-    const dict = useDict();
-    const imageUrl = '/images/tables/' + item.id + '.jpg'
     return (
         <div
             className={clsx("overflow-hidden rounded-[22px] border border-white/10 bg-black/30",
@@ -22,36 +17,39 @@ export const TableCard = ({item}: Props) => {
         >
             {/* image */}
             <div className={clsx('relative aspect-[16/9]')}>
-                <Image
-                    src={imageUrl}
-                    alt={''}
-                    // alt={tByKey(dict, item.nameKey)}
-                    fill
-                    sizes="(min-width: 640px) 50%, 100vw"
-                    className="object-cover opacity-90 transition duration-500"
-                />
+                {item.image?.url && (
+                    <Image
+                        src={item.image?.url}
+                        alt={''}
+                        // alt={tByKey(dict, item.nameKey)}
+                        fill
+                        sizes="(min-width: 640px) 50%, 100vw"
+                        className="object-cover opacity-90 transition duration-500"
+                    />
+                )}
+
                 <div className="pointer-events-none absolute inset-2 rounded-[18px] border border-white/5"/>
             </div>
 
             {/* content */}
             <div className='p-4'>
                 <div className="flex items-center justify-between gap-2">
-                    <div className="text-[18px] text-white/85">{tByKey(dict, `tables.${item.id}.title`)}</div>
+                    <div className="text-[18px] text-white/85">{item.title}</div>
                     <p
-                        className="text-[15px] text-white/60"><FontAwesomeIcon icon={faPerson}/>x{item.personLimit} </p>
+                        className="text-[15px] text-white/60"><FontAwesomeIcon icon={faPerson}/>x{item.capacity} </p>
                 </div>
 
-                {item.smallDeposit &&
+                {item.priceWeekdays &&
                     <div
-                        className="mt-3 text-[13px] leading-5 text-white/45 flex flex-col gap-2">{tByKey(dict, 'tables.smallDeposit', {amount: item.smallDeposit})}</div>
+                        className="mt-3 text-[13px] leading-5 text-white/45 flex flex-col gap-2">{item.priceWeekdays}</div>
                 }
-                {item.bigDeposit &&
+                {item.priceWeekend &&
                     <div
-                        className="mt-3 text-[13px] leading-5 text-white/45 flex flex-col gap-2">{tByKey(dict, 'tables.bigDeposit', {amount: item.bigDeposit})}</div>
+                        className="mt-3 text-[13px] leading-5 text-white/45 flex flex-col gap-2">{item.priceWeekend}</div>
                 }
-                {item.hoursLimit &&
+                {item.extraInfo &&
                     <div
-                        className="mt-3 text-[13px] leading-5 text-white/45 flex flex-col gap-2">{item.hoursLimit}&nbsp;{tByKey(dict, `tables.hoursLimit`)}</div>
+                        className="mt-3 text-[13px] leading-5 text-white/45 flex flex-col gap-2">{item.extraInfo}</div>
                 }
             </div>
         </div>

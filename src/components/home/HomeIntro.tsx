@@ -4,12 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import {useDict} from "@/components/i18n/I18nProvider";
 import {tByKey} from "@/shared/helpers/tByKey";
+import type {HomePageData} from "@/types/strapi";
 
 export const HOME_INTRO_DATA = {
     primaryCta: {labelKey: "home.intro.buttons.menu", href: "/menu"},
     secondaryCta: {labelKey: "home.intro.buttons.contacts", href: "/contact"},
 };
-export const HomeIntro = () => {
+export const HomeIntro = ({data}: { data: HomePageData | null }) => {
+    console.log("HomeIntro data", data);
     const {primaryCta, secondaryCta} = HOME_INTRO_DATA;
     const dict = useDict();
 
@@ -20,7 +22,7 @@ export const HomeIntro = () => {
             {/* Background */}
             <div className="absolute inset-0">
                 <Image
-                    src='/images/home/atmosphere.jpg'
+                    src={data?.heroImage?.url || ''}
                     alt=""
                     fill
                     sizes="(max-width: 768px) 100vw, 800px"
@@ -41,15 +43,15 @@ export const HomeIntro = () => {
             <div className="relative p-6 sm:px-12 sm:py-20">
                 <div className="max-w-[560px]">
                     <h1 className="text-[44px] leading-[1.05] tracking-[0.12em] uppercase text-[#E9E2D7] sm:text-[56px]">
-                        {tByKey(dict, 'home.intro.title')}
+                        {data?.heroTitle}
                     </h1>
 
                     <p className="mt-4 text-[20px] text-white/80 sm:text-[22px]">
-                        {tByKey(dict, 'home.intro.subtitle')}
+                        {data?.heroSubtitle}
                     </p>
 
                     <p className="mt-6 text-[14px] tracking-[0.12em] text-white/55">
-                        {tByKey(dict, 'home.intro.caption')}
+                        {data?.heroDescription}
                     </p>
 
                     <div className="mt-10 flex flex-wrap items-center gap-4">

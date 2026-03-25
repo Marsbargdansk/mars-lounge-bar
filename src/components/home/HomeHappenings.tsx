@@ -7,7 +7,7 @@ import {HappeningsCenter} from "@/components/happenings/Happenings";
 import {getSpecials} from "@/lib/happenings";
 import {getNearestOrLast} from "@/shared/helpers/getNearestOrLast";
 import {getNearestDay} from "@/shared/helpers/getNearestDay";
-import {StrapiEvent} from "@/lib/strapi/types";
+import {StrapiEvent} from "@/types/strapi";
 
 export const HOME_HAPPENINGS_DATA = {
     viewAll: {labelKey: "happenings.seeAll", href: "/happenings"},

@@ -1,5 +1,5 @@
 import {strapiFetch} from './strapiFetch'
-import type {StrapiEvent, StrapiListResponse, StrapiLocale} from './types'
+import type {StrapiEvent, StrapiListResponse, StrapiLocale} from '@/types/strapi'
 
 
 export const getEvents = async (locale: StrapiLocale, sort = 'date:asc') => {

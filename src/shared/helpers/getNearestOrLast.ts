@@ -1,4 +1,4 @@
-import type {StrapiEvent} from "@/lib/strapi/types";
+import type {StrapiEvent} from "@/types/strapi";
 
 const startOfTodayLocalTs = (now = new Date()) => {
     const d = new Date(now);
