@@ -1,13 +1,13 @@
 import type {Metadata} from "next";
 import React from "react";
 import {MenuItemCard} from "@/components/menu/MenuItemCard";
-import type {MenuCategory, MenuItem} from "@/types/menu";
-import {getDictionary, hasLocale} from "@/app/[lang]/dictionaries";
+import {hasLocale} from "@/app/[lang]/dictionaries";
 import {tByKey} from "@/shared/helpers/tByKey";
 import {MainPageWrapper} from "@/components/common/MainPageWrapper";
 import MENU_CATEGORIES from "@/content/menu/categories.json";
 import {notFound} from 'next/navigation';
-import {getMenuCategoryById, getMenuItemsByCategoryId} from '@/lib/menu';
+import {getMenuData} from '@/lib/strapi/menu';
+import {MenuCategoryWithItems} from "@/types/strapi";
 
 const LOCALES = ["pl", "en"] as const;
 
@@ -133,7 +133,7 @@ const CATEGORY_SEO: Record<
 export async function generateMetadata({params}: PageProps): Promise<Metadata> {
     const {lang, category} = await params;
 
-    const currentCategory = getMenuCategoryById(category);
+    const currentCategory: MenuCategoryWithItems[] | undefined = await getMenuData(lang, category);
     if (!currentCategory) notFound();
 
     const fallback = {
@@ -174,20 +174,17 @@ export default async function MenuCategoryPage({params}: PageProps) {
     if (!hasLocale(lang)) notFound();
     if (!category) notFound();
 
-    const currentCategory: MenuCategory | undefined = getMenuCategoryById(category);
+    const currentCategory: MenuCategoryWithItems[] | undefined = await getMenuData(lang, category);
     if (!currentCategory) notFound();
-
-    const dict = await getDictionary(lang);
-    const categoryItems: MenuItem[] = getMenuItemsByCategoryId(category);
 
     return (
         <MainPageWrapper className="sm:max-w-6xl pt-32">
             <h1 className="mb-2 sm:mb-4 text-[28px] tracking-[0.08em] text-white/85">
-                {tByKey(dict, currentCategory.titleKey)}
+                {currentCategory[0].title}
             </h1>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
-                {categoryItems.map((item) => (
+                {currentCategory[0].menu_items.map((item) => (
                     <MenuItemCard key={item.id} item={item}/>
                 ))}
             </div>

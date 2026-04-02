@@ -127,3 +127,47 @@ export type TablesPageData = {
     updatedAt: string
     publishedAt: string | null
 }
+export type MenuItemCategory = {
+    id: number
+    documentId: string
+    title: string
+    slug: string
+    isActive: boolean
+    locale: StrapiLocale
+    createdAt: string
+    updatedAt: string
+    publishedAt: string | null
+}
+
+export type MenuItem = {
+    id: number
+    documentId: string
+    title: string
+    description: string | null
+    volume: number | null
+    price: number | null
+    unit: string | null
+    isActive: boolean
+    image: StrapiMedia | null
+    category: MenuItemCategory | null
+    locale: StrapiLocale
+    createdAt: string
+    updatedAt: string
+    publishedAt: string | null
+}
+
+export type MenuCategory = {
+    id: number
+    documentId: string
+    title: string
+    slug: string
+    isActive: boolean
+    locale: StrapiLocale
+    createdAt: string
+    updatedAt: string
+    publishedAt: string | null
+}
+
+export type MenuCategoryWithItems = MenuCategory & {
+    menu_items: MenuItem[]
+}

@@ -15,8 +15,14 @@ import {MobileNavOverlay} from './MobileNavOverlay';
 import {MobileNavDrawer} from './MobileNavDrawer';
 import {getCurrentLocale, withLang} from "@/shared/helpers/lang";
 import {MenuCategoryNav} from "@/components/header/MenuCategoryNav";
+import {Locale} from "@/types/lang";
+import {MenuCategory} from "@/types/strapi";
 
-export const Header = () => {
+type HeaderProps = {
+    lang: Locale,
+    categories: MenuCategory[],
+}
+export const Header = ({lang, categories}: HeaderProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
 
@@ -73,7 +79,6 @@ export const Header = () => {
         return pathname === full || !!pathname?.startsWith(`${full}/`);
     };
 
-    const currentLocale = getCurrentLocale(pathname);
     const isInMenu = pathname.includes('menu');
 
     const navWithLang = (href: string) => withLang(href, langPrefix)
@@ -88,7 +93,7 @@ export const Header = () => {
                         <MobileMenuButton isOpen={isOpen} onToggle={toggle}/>
                     </div>
                 </HeaderShell>
-                {isInMenu && <MenuCategoryNav lang={currentLocale}/>}
+                {isInMenu && <MenuCategoryNav categories={categories} lang={lang}/>}
             </div>
 
             <AnimatePresence>

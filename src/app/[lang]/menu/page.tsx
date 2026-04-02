@@ -1,9 +1,6 @@
 import type {Metadata} from "next";
 import {CategoryRow} from "@/components/menu/CategoryRow";
-import {getMenuCategories, getMenuItemsByCategoryId} from "@/lib/menu";
-import {MenuCategory} from "@/types/menu";
-import {getDictionary} from "@/app/[lang]/dictionaries";
-import {tByKey} from "@/shared/helpers/tByKey";
+import {getMenuCategories, getMenuData} from "@/lib/strapi/menu";
 import {PageProps} from "@/types/page";
 import React from "react";
 import {MainPageWrapper} from "@/components/common/MainPageWrapper";
@@ -35,23 +32,22 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
 }
 
 export default async function MenuPage({params}: PageProps) {
-    const categories: MenuCategory[] = getMenuCategories();
     const {lang} = await params;
-    const dict = await getDictionary(lang);
-
+    const menuData = await getMenuData(lang)
+    const categories = await getMenuCategories(lang)
+    console.log("menuData", menuData)
+    console.log('categories', categories)
     return (
         <MainPageWrapper className="!px-0 sm:px-4 pt-32">
-            {categories.map(category => {
+            {menuData.map(category => {
                 if (!category.isActive) return null;
-
-                const items = getMenuItemsByCategoryId(category.id);
 
                 return (
                     <CategoryRow
                         key={category.id}
-                        categoryId={category.id}
-                        title={tByKey(dict, category.titleKey)}
-                        items={items}
+                        categoryId={category.slug}
+                        title={category.title}
+                        items={category.menu_items}
                     />
                 );
             })}

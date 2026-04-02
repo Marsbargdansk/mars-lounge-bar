@@ -1,10 +1,7 @@
-"use client";
-
-
 import React from "react";
 import {MenuItemCard} from "./MenuItemCard";
 import {DirectionalLink} from "@/components/common/DirectionalLink";
-import {MenuItem} from "@/types/menu";
+import {MenuItem} from "@/types/strapi";
 
 type Props = {
     title: string;

@@ -9,7 +9,9 @@ import {getDictionary, hasLocale} from "@/app/[lang]/dictionaries";
 import {config} from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/next"
+import {Analytics} from "@vercel/analytics/next"
+import {MenuCategory} from "@/types/strapi";
+import {getMenuCategories} from "@/lib/strapi/menu";
 
 config.autoAddCss = false;
 
@@ -97,7 +99,7 @@ export default async function RootLayout({children, params}: LangLayoutProps) {
     const {lang} = await params;
 
     if (!hasLocale(lang)) notFound();
-
+    const categories: MenuCategory[] = await getMenuCategories(lang)
     const dict = await getDictionary(lang);
 
     return (
@@ -109,7 +111,7 @@ export default async function RootLayout({children, params}: LangLayoutProps) {
         />
         <I18nProvider dict={dict}>
             <Analytics/>
-            <Header/>
+            <Header categories={categories} lang={lang}/>
             {children}
             <Footer/>
         </I18nProvider>

@@ -4,11 +4,8 @@ import Link from 'next/link'
 import {usePathname} from 'next/navigation'
 import clsx from 'clsx'
 import {motion} from 'framer-motion'
-import {MenuCategory} from '@/types/menu'
-import {tByKey} from '@/shared/helpers/tByKey'
-import {useDict} from '@/components/i18n/I18nProvider'
+import {MenuCategory} from '@/types/strapi'
 import React from 'react'
-import {getMenuCategories} from '@/lib/menu'
 import {Locale} from "@/types/lang";
 
 type NavItemProps = {
@@ -19,9 +16,8 @@ type NavItemProps = {
 }
 
 const NavItem = ({category, lang, activeSlug, itemRef}: NavItemProps) => {
-    const dict = useDict()
-    const href = `/${lang}/menu/${category.id}`
-    const isActive = activeSlug === category.id
+    const href = `/${lang}/menu/${category.slug}`
+    const isActive = activeSlug === category.slug
 
     return (
         <Link
@@ -35,7 +31,7 @@ const NavItem = ({category, lang, activeSlug, itemRef}: NavItemProps) => {
                     : 'text-white/60 hover:text-white'
             )}
         >
-            <span className="relative z-10">{tByKey(dict, category.titleKey)}</span>
+            <span className="relative z-10">{category.title}</span>
 
             {isActive && (
                 <motion.span
@@ -49,11 +45,11 @@ const NavItem = ({category, lang, activeSlug, itemRef}: NavItemProps) => {
 }
 
 type MenuCategoryNavProps = {
-    lang: Locale
+    lang: Locale,
+    categories: MenuCategory[]
 }
 
-export const MenuCategoryNav = ({lang}: MenuCategoryNavProps) => {
-    const categories: MenuCategory[] = getMenuCategories()
+export const MenuCategoryNav = ({lang, categories}: MenuCategoryNavProps) => {
     const pathname = usePathname()
     const activeItemRef = React.useRef<HTMLAnchorElement | null>(null)
 
