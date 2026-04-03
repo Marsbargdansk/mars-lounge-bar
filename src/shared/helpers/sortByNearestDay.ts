@@ -15,7 +15,7 @@ export const sortByNearestDay = (items: SpecialOffer[]): SpecialOffer => {
 
     const withDistance = items
         .map((item) => {
-            const dayIndex = WEEK_DAYS_INDEX[item.day.toLowerCase()];
+            const dayIndex = WEEK_DAYS_INDEX[item.slug.toLowerCase()];
             if (dayIndex === undefined) return null;
 
             const diff =
@@ -31,5 +31,5 @@ export const sortByNearestDay = (items: SpecialOffer[]): SpecialOffer => {
 
     withDistance.sort((a, b) => a.diff - b.diff);
 
-    return withDistance[0].item;
+    return withDistance[0]?.item;
 };
