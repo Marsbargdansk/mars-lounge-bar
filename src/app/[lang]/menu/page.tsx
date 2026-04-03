@@ -1,6 +1,6 @@
 import type {Metadata} from "next";
 import {CategoryRow} from "@/components/menu/CategoryRow";
-import {getMenuCategories, getMenuData} from "@/lib/strapi/menu";
+import {getMenuData} from "@/lib/strapi/menu";
 import {PageProps} from "@/types/page";
 import React from "react";
 import {MainPageWrapper} from "@/components/common/MainPageWrapper";
@@ -34,9 +34,7 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
 export default async function MenuPage({params}: PageProps) {
     const {lang} = await params;
     const menuData = await getMenuData(lang)
-    const categories = await getMenuCategories(lang)
-    console.log("menuData", menuData)
-    console.log('categories', categories)
+
     return (
         <MainPageWrapper className="!px-0 sm:px-4 pt-32">
             {menuData.map(category => {

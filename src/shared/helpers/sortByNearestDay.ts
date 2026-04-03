@@ -1,4 +1,5 @@
 import {SpecialsData} from "@/lib/happenings";
+import {SpecialOffer} from "@/types/strapi";
 
 const WEEK_DAYS_INDEX: Record<string, number> = {
     sunday: 0,
@@ -10,7 +11,7 @@ const WEEK_DAYS_INDEX: Record<string, number> = {
     saturday: 6,
 };
 
-export const getNearestDay = (items: SpecialsData[]): SpecialsData => {
+export const sortByNearestDay = (items: SpecialOffer[]): SpecialOffer => {
     const todayIndex = new Date().getDay();
 
     const withDistance = items
@@ -26,8 +27,9 @@ export const getNearestDay = (items: SpecialsData[]): SpecialsData => {
             return { item, diff };
         })
         .filter(
-            (v): v is { item: SpecialsData; diff: number } => v !== null
+            (v): v is { item: SpecialOffer; diff: number } => v !== null
         );
+
     withDistance.sort((a, b) => a.diff - b.diff);
 
     return withDistance[0].item;

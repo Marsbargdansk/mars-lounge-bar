@@ -20,6 +20,7 @@ export const formatShortTime = (time: StrapiTime): string => {
 }
 
 export const buildTimeRange = (start: StrapiTime, end: StrapiTime): string => {
-    if (!start || !end) return ''
+    if (!start) return ''
+    if (start && !end) return formatShortTime(start)
     return `${formatShortTime(start)}-${formatShortTime(end)}`
 }

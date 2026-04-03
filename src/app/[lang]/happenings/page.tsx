@@ -5,6 +5,7 @@ import {HappeningsCenter} from "@/components/happenings/Happenings";
 import {getSpecials} from "@/lib/happenings";
 import {MainPageWrapper} from "@/components/common/MainPageWrapper";
 import {getEvents} from "@/lib/strapi/events";
+import {getSpecialOffers} from "@/lib/strapi/specialOffers";
 
 export async function generateMetadata({params}: PageProps): Promise<Metadata> {
     const {lang} = await params;
@@ -35,11 +36,11 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
 export default async function HappeningsPage({params}: PageProps) {
     const {lang} = await params;
     const events = await getEvents(lang);
-    const specials = getSpecials();
+    const specials = await getSpecialOffers(lang);
 
     return (
         <MainPageWrapper>
-            <HappeningsCenter events={events} specials={specials}/>
+            <HappeningsCenter lang={lang} events={events} specials={specials}/>
         </MainPageWrapper>
     );
 }

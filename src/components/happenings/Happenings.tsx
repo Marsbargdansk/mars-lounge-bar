@@ -4,19 +4,20 @@ import React from "react";
 import {isToday} from "@/shared/helpers/isToday";
 import {HappeningsCard} from "@/components/happenings/HappeningsCard";
 import {HappeningsCardContent} from "@/components/happenings/HappeningsCardContent";
-import {SpecialsData} from "@/lib/happenings";
 import {useDict} from "@/components/i18n/I18nProvider";
-import {StrapiEvent} from "@/types/strapi";
+import {SpecialOffer, StrapiEvent} from "@/types/strapi";
 import {buildTimeRange, formatShortDate} from "@/shared/helpers/date";
 import {CardTitle} from "@/components/common/CardTitle";
+import {Locale} from "@/types/lang";
 
 
 type Props = {
+    lang: Locale;
     events: StrapiEvent[] | null;
-    specials: SpecialsData[];
+    specials: SpecialOffer[];
 };
 
-export const HappeningsCenter = ({events, specials}: Props) => {
+export const HappeningsCenter = ({lang, events, specials}: Props) => {
     const dict = useDict();
 
     return (
@@ -43,11 +44,13 @@ export const HappeningsCenter = ({events, specials}: Props) => {
                 <HappeningsCard>
                     {specials.map((special) => (
                         <HappeningsCardContent
-                            key={special.id}
-                            title={tByKey(dict, `happenings.specials.${special.id}.title`)}
-                            dayKey={`happenings.specials.days.${special.day}`}
-                            isToday={isToday(special.id)}
-                            description={tByKey(dict, `happenings.specials.${special.id}.description`)}
+                            key={special.slug}
+                            title={special.title}
+                            date={special.day}
+                            meta={isToday(special.slug) ?
+                                tByKey(dict, 'happenings.today')
+                                : null}
+                            description={special.description}
                         />
                     ))}
                 </HappeningsCard>

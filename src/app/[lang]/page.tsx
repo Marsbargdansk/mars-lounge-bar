@@ -11,6 +11,7 @@ import {MainPageWrapper} from "@/components/common/MainPageWrapper";
 import {getEvents} from "@/lib/strapi/events";
 import {getHomeData} from "@/lib/strapi/homePage";
 import {getContactData} from "@/lib/strapi/contactPage";
+import {getSpecialOffers} from "@/lib/strapi/specialOffers";
 
 export async function generateMetadata({params}: PageProps): Promise<Metadata> {
     const {lang} = await params;
@@ -42,14 +43,15 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
 export default async function Home({params}: PageProps) {
     const {lang} = await params;
     const events = await getEvents(lang);
+    const specials = await getSpecialOffers(lang);
     const homeData = await getHomeData(lang);
     const contactPageData = await getContactData(lang);
     if (!hasLocale(lang)) notFound();
 
     return (
         <MainPageWrapper className="max-w-7xl">
-            <HomeIntro data={homeData} />
-            <HomeHappenings events={events}/>
+            <HomeIntro data={homeData}/>
+            <HomeHappenings lang={lang} events={events} specials={specials}/>
             <HomeAtmosphere data={homeData}/>
             <HomeMenuPreview/>
             <Contacts data={contactPageData}/>

@@ -1,15 +1,31 @@
+import qs from 'qs';
 import {strapiFetch} from './strapiFetch';
-import type {MenuCategory, MenuCategoryWithItems, MenuItem, StrapiListResponse, StrapiLocale,} from '@/types/strapi';
+import type {
+    MenuCategory,
+    MenuCategoryWithItems,
+    MenuItem,
+    StrapiListResponse,
+    StrapiLocale,
+} from '@/types/strapi';
 
 export const getMenuCategories = async (locale: StrapiLocale) => {
-    const query = new URLSearchParams({
-        locale,
-        // sort: 'titleEn:asc',
-        'filters[isActive][$eq]': 'true',
-    });
+    const query = qs.stringify(
+        {
+            locale,
+            sort: ['sortOrder:asc'],
+            filters: {
+                isActive: {
+                    $eq: true,
+                },
+            },
+        },
+        {
+            encodeValuesOnly: true,
+        }
+    );
 
     const res = await strapiFetch<StrapiListResponse<MenuCategory>>(
-        `/menu-categories?${query.toString()}`,
+        `/menu-categories?${query}`,
         {
             next: {
                 tags: [`menu-categories:${locale}`],
@@ -20,35 +36,67 @@ export const getMenuCategories = async (locale: StrapiLocale) => {
     return res.data;
 };
 
+type GetMenuItemsResponse = StrapiListResponse<MenuItem>;
+
 export const getMenuItems = async (
     locale: StrapiLocale,
     categorySlug?: string
 ) => {
-    const query = new URLSearchParams({
-        locale,
-        sort: 'title:asc',
-        'filters[isActive][$eq]': 'true',
-        'populate[0]': 'image',
-        'populate[1]': 'category',
-    });
+    const pageSize = 100;
+    let page = 1;
+    let pageCount = 1;
+    const allItems: MenuItem[] = [];
 
-    if (categorySlug) {
-        query.set('filters[category][slug][$eq]', categorySlug);
-    }
-
-    const res = await strapiFetch<StrapiListResponse<MenuItem>>(
-        `/menu-items?${query.toString()}`,
-        {
-            next: {
-                tags: [
-                    `menu-items:${locale}`,
-                    ...(categorySlug ? [`menu-items:${locale}:category:${categorySlug}`] : []),
-                ],
+    do {
+        const query = qs.stringify(
+            {
+                locale,
+                sort: ['sortOrder:asc'],
+                filters: {
+                    isActive: {
+                        $eq: true,
+                    },
+                    ...(categorySlug
+                        ? {
+                            category: {
+                                slug: {
+                                    $eq: categorySlug,
+                                },
+                            },
+                        }
+                        : {}),
+                },
+                populate: ['image', 'category'],
+                pagination: {
+                    page,
+                    pageSize,
+                },
             },
-        }
-    );
+            {
+                encodeValuesOnly: true,
+            }
+        );
 
-    return res.data;
+        const res = await strapiFetch<GetMenuItemsResponse>(
+            `/menu-items?${query}`,
+            {
+                next: {
+                    tags: [
+                        `menu-items:${locale}`,
+                        ...(categorySlug
+                            ? [`menu-items:${locale}:category:${categorySlug}`]
+                            : []),
+                    ],
+                },
+            }
+        );
+
+        allItems.push(...res.data);
+        pageCount = res.meta.pagination.pageCount;
+        page += 1;
+    } while (page <= pageCount);
+
+    return allItems;
 };
 
 export const getMenuData = async (

@@ -171,3 +171,16 @@ export type MenuCategory = {
 export type MenuCategoryWithItems = MenuCategory & {
     menu_items: MenuItem[]
 }
+export type SpecialOffer = {
+    id: number;
+    documentId: string;
+    title: string;
+    description: string;
+    day: string;
+    slug: string;
+    sortOrder: number;
+    locale: StrapiLocale;
+    publishedAt: string | null;
+    createdAt: string;
+    updatedAt: string;
+};

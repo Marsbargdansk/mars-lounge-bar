@@ -1,17 +1,21 @@
+import qs from 'qs'
 import {strapiFetch} from './strapiFetch'
 import {
     StrapiListResponse,
     StrapiLocale,
     StrapiSingleResponse,
     TableCategory,
-    TablesPageData
+    TablesPageData,
 } from '@/types/strapi'
 
 export const getTablesPageData = async (locale: StrapiLocale) => {
-    const query = new URLSearchParams({ locale })
+    const query = qs.stringify(
+        { locale },
+        { encodeValuesOnly: true }
+    )
 
     const res = await strapiFetch<StrapiSingleResponse<TablesPageData>>(
-        `/tables-page?${query.toString()}`,
+        `/tables-page?${query}`,
         {
             next: {
                 tags: [`tables-page:${locale}`],
@@ -23,14 +27,31 @@ export const getTablesPageData = async (locale: StrapiLocale) => {
 }
 
 const getTablesCategory = async (locale: StrapiLocale, slug: string) => {
-    const query = new URLSearchParams({
-        locale,
-        'filters[slug][$eq]': slug,
-        'populate[table_items][populate]': 'image',
-    })
+    const query = qs.stringify(
+        {
+            locale,
+            sort: ['sortOrder:asc'],
+            filters: {
+                slug: {
+                    $eq: slug,
+                },
+            },
+            populate: {
+                table_items: {
+                    sort: ['sortOrder:asc'],
+                    populate: {
+                        image: true,
+                    },
+                },
+            },
+        },
+        {
+            encodeValuesOnly: true,
+        }
+    )
 
     const res = await strapiFetch<StrapiListResponse<TableCategory>>(
-        `/table-categories?${query.toString()}`,
+        `/table-categories?${query}`,
         {
             next: {
                 tags: [`table-category:${locale}`, `table-category:${locale}:${slug}`],
