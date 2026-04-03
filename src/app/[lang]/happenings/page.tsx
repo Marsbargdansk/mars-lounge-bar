@@ -2,10 +2,9 @@ import type {Metadata} from "next";
 import {PageProps} from "@/types/page";
 import React from "react";
 import {HappeningsCenter} from "@/components/happenings/Happenings";
-import {getSpecials} from "@/lib/happenings";
 import {MainPageWrapper} from "@/components/common/MainPageWrapper";
-import {getEvents} from "@/lib/strapi/events";
-import {getSpecialOffers} from "@/lib/strapi/specialOffers";
+import {getEvents} from "@/lib/collections/events";
+import {getSpecialOffers} from "@/lib/collections/specialOffers";
 
 export async function generateMetadata({params}: PageProps): Promise<Metadata> {
     const {lang} = await params;

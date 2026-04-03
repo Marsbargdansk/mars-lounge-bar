@@ -1,23 +1,26 @@
-import type {Metadata} from "next";
-import React from "react";
-import {MenuItemCard} from "@/components/menu/MenuItemCard";
-import {hasLocale} from "@/app/[lang]/dictionaries";
-import {tByKey} from "@/shared/helpers/tByKey";
-import {MainPageWrapper} from "@/components/common/MainPageWrapper";
-import MENU_CATEGORIES from "@/content/menu/categories.json";
+import type {Metadata} from 'next';
 import {notFound} from 'next/navigation';
-import {getMenuData} from '@/lib/strapi/menu';
-import {MenuCategoryWithItems} from "@/types/strapi";
+import {MainPageWrapper} from '@/components/common/MainPageWrapper';
+import {MenuItemCard} from '@/components/menu/MenuItemCard';
+import {hasLocale} from '@/app/[lang]/dictionaries';
+import {getMenuCategories, getMenuData} from '@/lib/collections/menu';
+import type {MenuCategoryWithItems} from '@/types/strapi';
 
-const LOCALES = ["pl", "en"] as const;
+const LOCALES = ['pl', 'en'] as const;
 
 export const generateStaticParams = async () => {
-    const activeCategoryIds = MENU_CATEGORIES
-        .filter((c) => c.isActive)
-        .map((c) => c.id);
+    const categoriesByLocale = await Promise.all(
+        LOCALES.map(async (lang) => ({
+            lang,
+            categories: await getMenuCategories(lang),
+        }))
+    );
 
-    return LOCALES.flatMap((lang) =>
-        activeCategoryIds.map((category) => ({lang, category}))
+    return categoriesByLocale.flatMap(({lang, categories}) =>
+        categories.map((category) => ({
+            lang,
+            category: category.slug,
+        }))
     );
 };
 
@@ -32,100 +35,98 @@ const CATEGORY_SEO: Record<
         en: { title: string; description: string };
     }
 > = {
-    "craft-cocktails": {
+    'craft-cocktails': {
         pl: {
-            title: "Craft Cocktails",
+            title: 'Craft Cocktails',
             description:
-                "Autorskie koktajle w Mars Lounge Bar w Gdańsku — wyjątkowe kompozycje smakowe i premium atmosfera.",
+                'Autorskie koktajle w Mars Lounge Bar w Gdańsku — wyjątkowe kompozycje smakowe i premium atmosfera.',
         },
         en: {
-            title: "Craft Cocktails",
+            title: 'Craft Cocktails',
             description:
-                "Signature cocktails at Mars Lounge Bar in Gdańsk — unique flavour combinations and a premium atmosphere.",
+                'Signature cocktails at Mars Lounge Bar in Gdańsk — unique flavour combinations and a premium atmosphere.',
         },
     },
-    "world-classic": {
+    'world-classic': {
         pl: {
-            title: "World Classic",
+            title: 'World Classic',
             description:
-                "Klasyczne koktajle z całego świata w Mars Lounge Bar w Gdańsku.",
+                'Klasyczne koktajle z całego świata w Mars Lounge Bar w Gdańsku.',
         },
         en: {
-            title: "World Classic",
+            title: 'World Classic',
             description:
-                "Classic cocktails from around the world at Mars Lounge Bar in Gdańsk.",
+                'Classic cocktails from around the world at Mars Lounge Bar in Gdańsk.',
         },
     },
     mocktails: {
         pl: {
-            title: "Mocktails",
+            title: 'Mocktails',
             description:
-                "Bezalkoholowe koktajle w Mars Lounge Bar w Gdańsku — pełnia smaku bez alkoholu.",
+                'Bezalkoholowe koktajle w Mars Lounge Bar w Gdańsku — pełnia smaku bez alkoholu.',
         },
         en: {
-            title: "Mocktails",
+            title: 'Mocktails',
             description:
-                "Alcohol-free cocktails at Mars Lounge Bar in Gdańsk — full flavour without alcohol.",
+                'Alcohol-free cocktails at Mars Lounge Bar in Gdańsk — full flavour without alcohol.',
         },
     },
     shisha: {
         pl: {
-            title: "Shisha",
+            title: 'Shisha',
             description:
-                "Shisha w Mars Lounge Bar w Gdańsku — wybrane smaki i lounge atmosfera.",
+                'Shisha w Mars Lounge Bar w Gdańsku — wybrane smaki i lounge atmosfera.',
         },
         en: {
-            title: "Shisha",
+            title: 'Shisha',
             description:
-                "Shisha at Mars Lounge Bar in Gdańsk — selected flavours and lounge atmosphere.",
+                'Shisha at Mars Lounge Bar in Gdańsk — selected flavours and lounge atmosphere.',
         },
     },
     soft: {
         pl: {
-            title: "Soft Drinks",
+            title: 'Soft Drinks',
             description:
-                "Napoje bezalkoholowe i soft drinks w Mars Lounge Bar w Gdańsku.",
+                'Napoje bezalkoholowe i soft drinks w Mars Lounge Bar w Gdańsku.',
         },
         en: {
-            title: "Soft Drinks",
+            title: 'Soft Drinks',
             description:
-                "Soft drinks and non-alcoholic beverages at Mars Lounge Bar in Gdańsk.",
+                'Soft drinks and non-alcoholic beverages at Mars Lounge Bar in Gdańsk.',
         },
     },
     standards: {
         pl: {
-            title: "Standards",
+            title: 'Standards',
             description:
-                "Klasyczne propozycje barowe w Mars Lounge Bar w Gdańsku.",
+                'Klasyczne propozycje barowe w Mars Lounge Bar w Gdańsku.',
         },
         en: {
-            title: "Standards",
+            title: 'Standards',
             description:
-                "Classic bar options at Mars Lounge Bar in Gdańsk.",
+                'Classic bar options at Mars Lounge Bar in Gdańsk.',
         },
     },
-    "coffee-tea": {
+    'coffee-tea': {
         pl: {
-            title: "Coffee & Tea",
-            description:
-                "Kawa i herbata w Mars Lounge Bar w Gdańsku.",
+            title: 'Coffee & Tea',
+            description: 'Kawa i herbata w Mars Lounge Bar w Gdańsku.',
         },
         en: {
-            title: "Coffee & Tea",
-            description:
-                "Coffee and tea at Mars Lounge Bar in Gdańsk.",
+            title: 'Coffee & Tea',
+            description: 'Coffee and tea at Mars Lounge Bar in Gdańsk.',
         },
     },
     snacks: {
         pl: {
-            title: "Snacks",
+            title: 'Snacks',
             description:
-                "Przekąski w Mars Lounge Bar w Gdańsku — idealne do koktajli i spotkań.",
+                'Przekąski w Mars Lounge Bar w Gdańsku — idealne do koktajli i spotkań.',
         },
         en: {
-            title: "Snacks",
+            title: 'Snacks',
             description:
-                "Snacks at Mars Lounge Bar in Gdańsk — perfect with cocktails and meetings.",
+                'Snacks at Mars Lounge Bar in Gdańsk — perfect with cocktails and meetings.',
         },
     },
 };
@@ -133,17 +134,25 @@ const CATEGORY_SEO: Record<
 export async function generateMetadata({params}: PageProps): Promise<Metadata> {
     const {lang, category} = await params;
 
-    const currentCategory: MenuCategoryWithItems[] | undefined = await getMenuData(lang, category);
-    if (!currentCategory) notFound();
+    if (!hasLocale(lang) || !category) {
+        notFound();
+    }
+
+    const categories = await getMenuCategories(lang);
+    const currentCategory = categories.find((item) => item.slug === category);
+
+    if (!currentCategory) {
+        notFound();
+    }
 
     const fallback = {
         pl: {
-            title: "Menu Category",
-            description: "Kategoria menu Mars Lounge Bar w Gdańsku.",
+            title: currentCategory.title || 'Menu Category',
+            description: 'Kategoria menu Mars Lounge Bar w Gdańsku.',
         },
         en: {
-            title: "Menu Category",
-            description: "Menu category at Mars Lounge Bar in Gdańsk.",
+            title: currentCategory.title || 'Menu Category',
+            description: 'Menu category at Mars Lounge Bar in Gdańsk.',
         },
     };
 
@@ -171,11 +180,15 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
 export default async function MenuCategoryPage({params}: PageProps) {
     const {lang, category} = await params;
 
-    if (!hasLocale(lang)) notFound();
-    if (!category) notFound();
+    if (!hasLocale(lang) || !category) {
+        notFound();
+    }
 
-    const currentCategory: MenuCategoryWithItems[] | undefined = await getMenuData(lang, category);
-    if (!currentCategory) notFound();
+    const currentCategory: MenuCategoryWithItems[] = await getMenuData(lang, category);
+
+    if (!currentCategory.length) {
+        notFound();
+    }
 
     return (
         <MainPageWrapper className="sm:max-w-6xl pt-32">

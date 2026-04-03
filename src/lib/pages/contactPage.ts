@@ -1,4 +1,4 @@
-import {strapiFetch} from './strapiFetch'
+import {strapiFetch} from '../strapi/strapiFetch'
 import type {ContactsPage, StrapiLocale, StrapiSingleResponse} from '@/types/strapi'
 
 export const getContactData = async (locale: StrapiLocale) => {

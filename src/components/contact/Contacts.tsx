@@ -5,7 +5,6 @@ import {BusinessHour, ContactsPage} from "@/types/strapi";
 import {formatShortTime} from "@/shared/helpers/date";
 
 export const Contacts = ({data}: { data: ContactsPage | null }) => {
-    console.log('data,', data)
     const phoneHref = `tel:${data?.phone?.value?.replace(/[^\d+]/g, "")}`;
     const emailHref = `mailto:${data?.email?.value}`;
 

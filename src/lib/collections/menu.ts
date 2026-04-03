@@ -1,12 +1,6 @@
 import qs from 'qs';
-import {strapiFetch} from './strapiFetch';
-import type {
-    MenuCategory,
-    MenuCategoryWithItems,
-    MenuItem,
-    StrapiListResponse,
-    StrapiLocale,
-} from '@/types/strapi';
+import {strapiFetch} from '../strapi/strapiFetch';
+import type {MenuCategory, MenuCategoryWithItems, MenuItem, StrapiListResponse, StrapiLocale,} from '@/types/strapi';
 
 export const getMenuCategories = async (locale: StrapiLocale) => {
     const query = qs.stringify(

@@ -1,5 +1,5 @@
 import qs from 'qs'
-import {strapiFetch} from './strapiFetch'
+import {strapiFetch} from '../strapi/strapiFetch'
 import type {SpecialOffer, StrapiListResponse, StrapiLocale} from '@/types/strapi'
 
 export const getSpecialOffers = async (

@@ -1,6 +1,6 @@
 import type {Metadata} from "next";
 import {CategoryRow} from "@/components/menu/CategoryRow";
-import {getMenuData} from "@/lib/strapi/menu";
+import {getMenuData} from "@/lib/collections/menu";
 import {PageProps} from "@/types/page";
 import React from "react";
 import {MainPageWrapper} from "@/components/common/MainPageWrapper";

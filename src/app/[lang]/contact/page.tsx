@@ -3,8 +3,7 @@ import {GoogleMapEmbed} from "@/components/contact/GoogleMapEmbed";
 import {PageProps} from "@/types/page";
 import {Contacts} from "@/components/contact/Contacts";
 import {MainPageWrapper} from "@/components/common/MainPageWrapper";
-import {getContactsInfo} from "@/lib/contacts";
-import {getContactData} from "@/lib/strapi/contactPage";
+import {getContactData} from "@/lib/pages/contactPage";
 
 export async function generateMetadata({params}: PageProps): Promise<Metadata> {
     const {lang} = await params;

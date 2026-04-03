@@ -1,17 +1,11 @@
 import qs from 'qs'
-import {strapiFetch} from './strapiFetch'
-import {
-    StrapiListResponse,
-    StrapiLocale,
-    StrapiSingleResponse,
-    TableCategory,
-    TablesPageData,
-} from '@/types/strapi'
+import {strapiFetch} from '../strapi/strapiFetch'
+import {StrapiListResponse, StrapiLocale, StrapiSingleResponse, TableCategory, TablesPageData,} from '@/types/strapi'
 
 export const getTablesPageData = async (locale: StrapiLocale) => {
     const query = qs.stringify(
-        { locale },
-        { encodeValuesOnly: true }
+        {locale},
+        {encodeValuesOnly: true}
     )
 
     const res = await strapiFetch<StrapiSingleResponse<TablesPageData>>(

@@ -1,30 +1,31 @@
 import type {MetadataRoute} from 'next';
-import MENU_CATEGORIES from '@/content/menu/categories.json';
+import {getMenuCategories} from '@/lib/collections/menu';
 
 const baseUrl =
     process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.mars-lounge.bar';
 
-const locales = ['pl', 'en'];
+const locales = ['pl', 'en'] as const;
 const staticPages = ['', 'menu', 'tables', 'happenings', 'contact'];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const now = new Date();
 
-    return locales.flatMap((lang) => [
-        // обычные страницы
+    const categoriesByLocale = await Promise.all(
+        locales.map(async (lang) => ({
+            lang,
+            categories: await getMenuCategories(lang),
+        }))
+    );
+
+    return categoriesByLocale.flatMap(({lang, categories}) => [
         ...staticPages.map((page) => ({
-            url: page
-                ? `${baseUrl}/${lang}/${page}`
-                : `${baseUrl}/${lang}`,
+            url: page ? `${baseUrl}/${lang}/${page}` : `${baseUrl}/${lang}`,
             lastModified: now,
         })),
 
-        // категории меню (ТОЛЬКО активные)
-        ...MENU_CATEGORIES
-            .filter((c) => c.isActive)
-            .map((category) => ({
-                url: `${baseUrl}/${lang}/menu/${category.id}`,
-                lastModified: now,
-            })),
+        ...categories.map((category) => ({
+            url: `${baseUrl}/${lang}/menu/${category.slug}`,
+            lastModified: now,
+        })),
     ]);
 }

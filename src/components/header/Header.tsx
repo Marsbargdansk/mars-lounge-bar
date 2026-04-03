@@ -13,7 +13,7 @@ import {DesktopNav} from './DesktopNav';
 import {MobileMenuButton} from './MobileMenuButton';
 import {MobileNavOverlay} from './MobileNavOverlay';
 import {MobileNavDrawer} from './MobileNavDrawer';
-import {getCurrentLocale, withLang} from "@/shared/helpers/lang";
+import {withLang} from "@/shared/helpers/lang";
 import {MenuCategoryNav} from "@/components/header/MenuCategoryNav";
 import {Locale} from "@/types/lang";
 import {MenuCategory} from "@/types/strapi";

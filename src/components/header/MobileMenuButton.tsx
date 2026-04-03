@@ -19,8 +19,8 @@ export const MobileMenuButton = ({isOpen, onToggle}: Props) => {
             aria-expanded={isOpen}
             aria-controls="mobile-nav"
         >
-            <span className="block h-[2px] w-5 bg-current opacity-90" />
-            <span className="mt-1 block h-[2px] w-5 bg-current opacity-65" />
+            <span className="block h-[2px] w-5 bg-current opacity-90"/>
+            <span className="mt-1 block h-[2px] w-5 bg-current opacity-65"/>
         </button>
     );
 };

@@ -8,10 +8,10 @@ import {Contacts} from "@/components/contact/Contacts";
 import {PageProps} from "@/types/page";
 import {HomeHappenings} from "@/components/home/HomeHappenings";
 import {MainPageWrapper} from "@/components/common/MainPageWrapper";
-import {getEvents} from "@/lib/strapi/events";
-import {getHomeData} from "@/lib/strapi/homePage";
-import {getContactData} from "@/lib/strapi/contactPage";
-import {getSpecialOffers} from "@/lib/strapi/specialOffers";
+import {getEvents} from "@/lib/collections/events";
+import {getHomeData} from "@/lib/pages/homePage";
+import {getContactData} from "@/lib/pages/contactPage";
+import {getSpecialOffers} from "@/lib/collections/specialOffers";
 
 export async function generateMetadata({params}: PageProps): Promise<Metadata> {
     const {lang} = await params;

@@ -1,4 +1,4 @@
-import {strapiFetch} from './strapiFetch'
+import {strapiFetch} from '../strapi/strapiFetch'
 import type {StrapiEvent, StrapiListResponse, StrapiLocale} from '@/types/strapi'
 
 

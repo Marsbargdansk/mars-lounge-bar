@@ -11,7 +11,6 @@ export const HOME_INTRO_DATA = {
     secondaryCta: {labelKey: "home.intro.buttons.contacts", href: "/contact"},
 };
 export const HomeIntro = ({data}: { data: HomePageData | null }) => {
-    console.log("HomeIntro data", data);
     const {primaryCta, secondaryCta} = HOME_INTRO_DATA;
     const dict = useDict();
 

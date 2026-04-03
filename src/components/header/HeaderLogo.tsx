@@ -6,7 +6,7 @@ type Props = {
     href: string;
 };
 
-export const HeaderLogo = ({ href }: Props) => {
+export const HeaderLogo = ({href}: Props) => {
     return (
         <Link
             href={href}

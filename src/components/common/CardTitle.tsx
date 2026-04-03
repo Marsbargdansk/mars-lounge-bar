@@ -10,7 +10,7 @@ type Props = {
     titleKey?: string;
     className?: string;
 };
-export const CardTitle = ({title,titleKey, className}: Props) => {
+export const CardTitle = ({title, titleKey, className}: Props) => {
     const dict = useDict();
 
     return (

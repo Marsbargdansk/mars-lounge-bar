@@ -1,4 +1,3 @@
-import {SpecialsData} from "@/lib/happenings";
 import {SpecialOffer} from "@/types/strapi";
 
 const WEEK_DAYS_INDEX: Record<string, number> = {
@@ -24,7 +23,7 @@ export const sortByNearestDay = (items: SpecialOffer[]): SpecialOffer => {
                     ? dayIndex - todayIndex
                     : 7 - todayIndex + dayIndex;
 
-            return { item, diff };
+            return {item, diff};
         })
         .filter(
             (v): v is { item: SpecialOffer; diff: number } => v !== null

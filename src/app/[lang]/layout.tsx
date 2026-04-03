@@ -11,7 +11,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import "./globals.css";
 import {Analytics} from "@vercel/analytics/next"
 import {MenuCategory} from "@/types/strapi";
-import {getMenuCategories} from "@/lib/strapi/menu";
+import {getMenuCategories} from "@/lib/collections/menu";
 
 config.autoAddCss = false;
 
