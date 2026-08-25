@@ -1,6 +1,7 @@
 import type {Metadata} from "next";
 import type {ReactNode} from "react";
 import {notFound} from "next/navigation";
+import Script from "next/script";
 import {montserrat} from "@/app/[lang]/fonts/fonts";
 import {Header} from "@/components/header/Header";
 import {Footer} from "@/components/footer/Footer";
@@ -9,8 +10,8 @@ import {getDictionary, hasLocale} from "@/app/[lang]/dictionaries";
 import {config} from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "./globals.css";
-import {Analytics} from "@vercel/analytics/next"
-import {MenuCategory} from "@/types/strapi";
+import {Analytics} from "@vercel/analytics/next";
+import type {MenuCategory} from "@/types/strapi";
 import {getMenuCategories} from "@/lib/collections/menu";
 
 config.autoAddCss = false;
@@ -47,10 +48,12 @@ const schema = {
     ],
     priceRange: "$$",
     sameAs: ["https://www.instagram.com/themars_bar_/"],
-}
+};
 
 export async function generateMetadata({params}: MetadataProps): Promise<Metadata> {
     const {lang} = await params;
+
+    if (!hasLocale(lang)) notFound();
 
     const isPl = lang === "pl";
 
@@ -70,9 +73,11 @@ export async function generateMetadata({params}: MetadataProps): Promise<Metadat
         },
         description,
         alternates: {
+            canonical: `/${lang}`,
             languages: {
                 pl: "/pl",
                 en: "/en",
+                "x-default": "/pl",
             },
         },
         openGraph: {
@@ -99,12 +104,29 @@ export default async function RootLayout({children, params}: LangLayoutProps) {
     const {lang} = await params;
 
     if (!hasLocale(lang)) notFound();
-    const categories: MenuCategory[] = await getMenuCategories(lang)
+    const categories: MenuCategory[] = await getMenuCategories(lang);
     const dict = await getDictionary(lang);
 
     return (
         <html lang={lang}>
+        <head>
+            <Script id="google-tag-manager" strategy="beforeInteractive">
+                {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TTW4QZBM');`}
+            </Script>
+        </head>
         <body className={`${montserrat.className} antialiased`}>
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TTW4QZBM"
+                    height="0"
+                    width="0"
+                    style={{display: "none", visibility: "hidden"}}
+                    title="Google Tag Manager"
+            />
+        </noscript>
         <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{__html: JSON.stringify(schema)}}
